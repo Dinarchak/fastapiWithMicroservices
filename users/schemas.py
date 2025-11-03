@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field, EmailStr
 from enum import Enum
 
 class UserRole(Enum):
-    USER = 'user'
+    USER = 'USER'
     ADMIN = 'ADMIN'
     SUPERUSER = 'SUPERUSER'
 

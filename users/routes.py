@@ -5,8 +5,7 @@ from typing import List
 from schemas import (
     UserLoginSchema,
     UserSchema,
-    UserCreateSchema,
-    UpdateUserRoleSchema
+    UserCreateSchema
 )
 from models import User
 

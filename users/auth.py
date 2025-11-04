@@ -50,12 +50,10 @@ def get_token(request: Request):
 
   
 async def get_current_user(token: str = Depends(get_token)):
-
-    print(token, SECRET_KEY, ALGORITHM, sep='\n')
-
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-    except JWTError:
+    except JWTError as e:
+        print(e)
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Токен не валидный!')
 
     expire = payload.get('exp')

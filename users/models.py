@@ -9,6 +9,7 @@ class User(Base):
     email: Mapped[str_uniq]
     full_name: Mapped[str_uniq]
     role_id: Mapped[int] = mapped_column(ForeignKey('roles.id'), nullable=False)
+    password: Mapped[str] = mapped_column(nullable=False)
 
     role: Mapped['Role'] = relationship('Role', back_populates='users')
 

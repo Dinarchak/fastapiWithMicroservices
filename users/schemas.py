@@ -12,15 +12,21 @@ class UserSchema(BaseModel):
     username: str = Field(max_length=100)
     email: EmailStr
     full_name: str = Field(max_length=100)
-    user_role: UserRole
+    role_id: int
 
 
 class UserCreateSchema(BaseModel):
     username: str = Field(max_length=100)
     email: EmailStr
     full_name: str
+    password: str
 
 
 class UpdateUserRoleSchema(BaseModel):
     role: UserRole
     user_id: int
+
+
+class UserLoginSchema(BaseModel):
+    username: str
+    password: str

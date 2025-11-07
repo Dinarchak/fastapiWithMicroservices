@@ -13,7 +13,7 @@ class OrderDAO():
             return result.scalars().all()
         
     @staticmethod
-    async def create_user(**values):
+    async def create_order(**values):
         async with async_session_maker() as session:
             async with session.begin():
                 new_instance = Order(**values)
@@ -28,7 +28,7 @@ class OrderDAO():
     @staticmethod
     async def get_order(id):
         async with async_session_maker() as session:
-            query = select(Order).filter(id=id)
+            query = select(Order).filter_by(id=id)
             result = await session.execute(query)
 
             return result.scalar_one_or_none()

@@ -1,12 +1,10 @@
-from sqlalchemy.orm import DeclarativeBase, mapped_column, Mapped
-from sqlalchemy.ext.asyncio import AsyncAttrs
+from sqlalchemy.orm import mapped_column, Mapped
 from datetime import datetime
 from sqlalchemy import func
+from database import Base
 
 
-class Order(AsyncAttrs, DeclarativeBase):
-    __tablename__ = 'orders'
-
+class Order(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     address: Mapped[str] = mapped_column(nullable=False)
     item: Mapped[str] = mapped_column(nullable=False)
